@@ -11,25 +11,39 @@ DT = List[ST]
 
 def task_1_fix_names_start_letter(data: DT) -> DT:
 
-    for student in data:
-        if 'name' in student:
-           student["name"] = student["name"].capitalize()
+    #for student in data:
+    #    if 'name' in student:
+    #       student["name"] = student["name"].capitalize()
+    #return data
+
+    #2
+    #[k.update({'name': k.get('name').title() if type(k.get('name')) == str else k.get('name')}) for k in data]
+    #return data
+
+    #3
+    #[k.update({'name': k.get('name').title() if isinstance(k.get('name'),str) else k.get('name')}) for k in data]
+    #return data
+
+    [k.update({'name': k.get('name').title()}) if isinstance(k.get('name'), str) else None for k in data]
     return data
 
 
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
 
 
-    for student in data:
-        for key in redundant_keys:
-             student.pop(key)
-    return data
+    #for student in data:
+     #   for key in redundant_keys:
+     #       student.pop(key)
+    #return data
 
     #2:
     #for r in range (len(redundant_keys)):
     #    for item in data:
     #        item.pop(redundant_keys[r])
     #return data
+
+    #3
+    return [{key: value for key, value in student.items() if key not in redundant_keys} for student in data]
 
 
 def task_3_find_item_via_value(data: DT, value) -> DT:
@@ -81,3 +95,5 @@ def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
 def task_11_create_list_of_random_characters() -> List[str]:
 
     return random.sample(string.ascii_lowercase, 20)
+
+
