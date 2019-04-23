@@ -24,6 +24,7 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
     #[k.update({'name': k.get('name').title() if isinstance(k.get('name'),str) else k.get('name')}) for k in data]
     #return data
 
+    #4
     [k.update({'name': k.get('name').title()}) if isinstance(k.get('name'), str) else None for k in data]
     return data
 
@@ -95,5 +96,4 @@ def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
 def task_11_create_list_of_random_characters() -> List[str]:
 
     return random.sample(string.ascii_lowercase, 20)
-
 
